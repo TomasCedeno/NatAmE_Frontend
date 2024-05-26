@@ -52,12 +52,16 @@ function SalesPage() {
             name: "John Doe",
             oldCategory: "Begginer",
             newCategory: "Junior",
+            sales: 20000,
+            rateAvg: 3.63,
         },
         {
             id: 2,
             name: "Jane Smith",
             oldCategory: "Junior",
             newCategory: "Senior",
+            sales: 22000,
+            rateAvg: 4.18,
         },
     ];
 
@@ -65,7 +69,9 @@ function SalesPage() {
     const classifyColumns = [
         { header: "Representante", key: "name" },
         { header: "Categoría Anterior ", key: "oldCategory" },
-        { header: "Categoría Nueva", key: "newCategory" },
+        { header: "Categoría Asignada", key: "newCategory" },
+        { header: "Acumulado Ventas", key: "sales" },
+        { header: "Promedio Calificaciones", key: "rateAvg" },
     ];
 
     return (
@@ -73,7 +79,7 @@ function SalesPage() {
             <div className="text-4xl font-bold px-6 py-4">Ventas</div>
 
             <div className="flex">
-                <div className="w-1/2">
+                <div className="w-5/12">
                     <div className="text-2xl font-bold px-6 py-4">
                         Ventas por periodo
                     </div>
@@ -100,7 +106,7 @@ function SalesPage() {
 
                         <button
                             onClick={handleCalculateSales}
-                            className="m-2 max-h-10 bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded"
+                            className="m-2 max-h-14 bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded flex items-center"
                         >
                             Calcular Comisiones
                         </button>
@@ -113,7 +119,7 @@ function SalesPage() {
                     />
                 </div>
 
-                <div className="w-1/2">
+                <div className="w-7/12">
                     <div className="text-2xl font-bold px-6 py-4">
                         Clasificar Representantes
                     </div>
