@@ -7,6 +7,7 @@ import RegisterSalesRepresentativePage from "./pages/RegisterSalesRepresentative
 import CartPage from "./pages/CartPage";
 import OrdersPage from "./pages/OrdersPage";
 import ViewOrderPage from "./pages/ViewOrderPage";
+import SalesPage from "./pages/SalesPage";
 
 const router = createBrowserRouter([
     {
@@ -36,6 +37,10 @@ const router = createBrowserRouter([
     {
       path: "/sales-representative/register",
       element: <RegisterSalesRepresentativePage />,
+    },
+    {
+      path: "/sales",
+      element: <SalesPage />,
     },
     
 ]);

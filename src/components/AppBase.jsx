@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import { Link, Navigate, useNavigate } from "react-router-dom";
+
 import { TbPlant2 } from "react-icons/tb";
 import { TiShoppingCart } from "react-icons/ti";
 import { FaHome } from "react-icons/fa";
 import { MdWork } from "react-icons/md";
 import { GiTakeMyMoney } from "react-icons/gi";
 import { BiSolidPurchaseTag } from "react-icons/bi";
+import { MdQueryStats } from "react-icons/md";
 
 import avatarImg from "../assets/avatar.png";
 
@@ -183,6 +185,15 @@ const Aside = () => (
                 <GiTakeMyMoney />
             </span>
             <span>Registrar Cliente</span>
+        </Link>
+        <Link
+            to="/sales"
+            className="flex items-center space-x-1 rounded-md px-2 py-4 hover:bg-gray-100 hover:text-green-500"
+        >
+            <span className="text-2xl pr-4">
+                <MdQueryStats />
+            </span>
+            <span>Ventas</span>
         </Link>
     </aside>
 );

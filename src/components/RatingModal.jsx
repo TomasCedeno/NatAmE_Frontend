@@ -9,6 +9,11 @@ function RatingModal() {
         setRating(rate);
     };
 
+    const rate = async () => {
+        setRating(0);
+        document.getElementById('modal_rate').close();
+    }
+
     return (
         <div>
             <dialog id="modal_rate" className="modal">
@@ -27,7 +32,7 @@ function RatingModal() {
                         />
                     </div>
                     <div className="modal-action items-center justify-end mt-2">
-                        <button 
+                        <button onClick={rate}
                             className="flex justify-between bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded">
                             Calificar
                         </button>
