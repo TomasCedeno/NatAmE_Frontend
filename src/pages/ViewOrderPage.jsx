@@ -5,6 +5,7 @@ import { FaClipboardCheck } from "react-icons/fa6";
 
 import AppBase from "../components/AppBase";
 import ProductOrderDetail from "../components/ProductOrderDetail";
+import RatingModal from "../components/RatingModal";
 
 function ViewOrderPage() {
     return (
@@ -18,7 +19,7 @@ function ViewOrderPage() {
                         
                         <div className="flex justify-between items-center">
                             <h6 class="text-xl leading-8 text-black mb-3">Representante: <span className="font-medium">NOMBRE REPRESENTANTE</span></h6>
-                            <button
+                            <button onClick={()=>document.getElementById('modal_rate').showModal()}
                                 className="flex items-center justify-center rounded-full bg-green-600 text-white text-xl py-2 px-4 transition-colors duration-300 hover:bg-white hover:text-green-600 hover:border-green-600 border-2 border-transparent gap-4">
                                 Calificar Representante
                                 <FaClipboardCheck />
@@ -157,6 +158,9 @@ function ViewOrderPage() {
                     </div>
                 </section>
             </AppBase>
+
+            <RatingModal />
+            
         </div>
     );
 }
