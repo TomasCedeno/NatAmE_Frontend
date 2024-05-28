@@ -3,7 +3,7 @@ import { TiShoppingCart } from "react-icons/ti";
 
 import defaultProductImg from "../assets/product_placeholder.jpg"
 
-function ProductCard() {
+function ProductCard({product}) {
   return (
     <div className="mx-auto mt-11 w-80 transform overflow-hidden rounded-lg bg-white shadow-md duration-300 hover:scale-105 hover:shadow-lg">
       <img
@@ -13,14 +13,17 @@ function ProductCard() {
       />
       <div className="p-4">
         <h2 className="mb-2 text-lg font-medium text-gray-900">
-          Product Name
+          {product.nombre}
         </h2>
         <p className="mb-2 text-base text-gray-700">
           Categoría - Subcategoría
         </p>
+        <p className="mb-2 text-base text-gray-700">
+          Disponible: {product.disponible}
+        </p>
         <div className="flex items-center">
           <p className="mr-2 text-lg font-semibold text-gray-900">
-            $20.00
+            ${product.precio}
           </p>
           {/* <p className="ml-auto text-base font-medium text-green-500">20% off</p> */}
         </div>

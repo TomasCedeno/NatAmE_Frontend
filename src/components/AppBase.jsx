@@ -9,12 +9,14 @@ import { GiTakeMyMoney } from "react-icons/gi";
 import { BiSolidPurchaseTag } from "react-icons/bi";
 import { MdQueryStats } from "react-icons/md";
 
+import { useGlobalContext } from "../utils/GlobalContext";
 import avatarImg from "../assets/avatar.png";
 
-function AppBase({children}) {
+function AppBase({ children }) {
     const [profileOpen, setProfileOpen] = useState(false);
     const [asideOpen, setAsideOpen] = useState(true);
     const navigate = useNavigate();
+    const {handleClientChange, clients} = useGlobalContext();
 
     const toggleProfile = () => {
         setProfileOpen(!profileOpen);
@@ -31,7 +33,7 @@ function AppBase({children}) {
     return (
         <main className="min-h-screen w-full bg-gray-100 text-gray-700">
             {/* Header */}
-            <header className=" fixed z-50 top-0 left-0 flex w-full h-20 items-center justify-between border-b-2 border-gray-200 bg-white p-2 ">
+            <header className=" fixed z-20 top-0 left-0 flex w-full h-20 items-center justify-between border-b-2 border-gray-200 bg-white p-2 ">
                 <div className="flex items-center space-x-2">
                     <button
                         type="button"
@@ -46,11 +48,27 @@ function AppBase({children}) {
                     </div>
                 </div>
 
-                <div className="flex items-center gap-10">
+                <div className="flex items-center gap-12">
+                    <div className="flex items-center">
+                        <h4 className="text-green-500 text-2xl font-bold pr-4">Cliente: </h4>
+                        <select 
+                            className="select select-primary min-w-72 w-full max-w-xs text-xl"
+                            onChange={(e) => handleClientChange(e.target.value)}
+                            >
+                            {clients?.map(client => {
+                                return <option key={client.id} value={client.id}>
+                                    {client.name}
+                                </option>
+                            })}
+                        </select>
+                    </div>
+
                     {/* Cart Button */}
                     <div className="mr-4">
-                        <button onClick={() => navigate('/cart')}
-                            className="flex items-center justify-center rounded-full bg-green-600 text-white text-xl py-2 px-4 transition-colors duration-300 hover:bg-white hover:text-green-600 hover:border-green-600 border-2 border-transparent">
+                        <button
+                            onClick={() => navigate("/cart")}
+                            className="flex items-center justify-center rounded-full bg-green-600 text-white text-xl py-2 px-4 transition-colors duration-300 hover:bg-white hover:text-green-600 hover:border-green-600 border-2 border-transparent"
+                        >
                             <TiShoppingCart className="mr-2 text-3xl" />
                             <span className="hidden md:inline-block">
                                 Carrito (0)
@@ -102,7 +120,10 @@ function AppBase({children}) {
                                 </div>
 
                                 <div className="p-2">
-                                    <button onClick={() => navigate('/')} className="flex items-center space-x-2 transition hover:text-green-500">
+                                    <button
+                                        onClick={() => navigate("/")}
+                                        className="flex items-center space-x-2 transition hover:text-green-500"
+                                    >
                                         <svg
                                             className="h-4 w-4"
                                             fill="none"

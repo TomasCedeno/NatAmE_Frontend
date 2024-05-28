@@ -8,6 +8,7 @@ import CartPage from "./pages/CartPage";
 import OrdersPage from "./pages/OrdersPage";
 import ViewOrderPage from "./pages/ViewOrderPage";
 import SalesPage from "./pages/SalesPage";
+import GlobalProvider from "./utils/GlobalContext";
 
 const router = createBrowserRouter([
     {
@@ -48,7 +49,9 @@ const router = createBrowserRouter([
 function App() {
     return (
         <div className="App">
+           <GlobalProvider>
             <RouterProvider router={router} />
+           </GlobalProvider>
         </div>
     );
 }
